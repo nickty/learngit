@@ -7,6 +7,9 @@ const {check, validationResult} = require('express-validator')
 const User = require('../models/User')
 
 
+router.get('/', (req, res)=>res.send("from user"))
+
+
 router.post('/register',[
     check('name', 'Name is required').not().isEmpty(), 
     check('email', 'Email is required').isEmail(), 
@@ -64,6 +67,12 @@ router.post('/register',[
         }
     })
 })
+
+
+//you have to puth email and password to get response from this route
+//method post 
+//you will get token back, token will be live for 24 hours. 
+
 
 router.post('/login', [
     check('email', 'Email is required').isEmail(), 

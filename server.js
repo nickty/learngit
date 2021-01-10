@@ -18,7 +18,8 @@ app.use(exp.json())
 app.get('/', (req, res) => res.send('hi'))
 
 
-app.use('/', require('./routes/users'))
+app.use('/user', require('./routes/users'))
+app.use('/profile', require('./routes/profile'))
 
 
 const port = process.env.PORT || 8000
