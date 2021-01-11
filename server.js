@@ -16,6 +16,11 @@ mongoose.connect(process.env.DATABASE, {
 app.use(exp.json())
 
 app.get('/', (req, res) => res.send('hi'))
+app.post('/', (req, res) => {
+    const x = req.body
+    
+    res.send(x)
+})
 
 
 app.use('/user', require('./routes/users'))

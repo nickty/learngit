@@ -12,16 +12,16 @@ const checkUser = (req, res, next) => {
 
     }
 
-    
 
+    
     //verify token 
     try {
-        const decoded = jwt.verify(token, process.env.jwtSecret)
+        const payload = jwt.verify(token, process.env.jwtSecret)
 
         //console.log(decoded.user)
 
 
-        req.user = decoded.user; 
+        req.user = payload.user; 
         next(); 
     } catch (err) {
         res.status(401).json({ msg: 'Token is not valid'})
